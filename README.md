@@ -19,6 +19,10 @@ make sure you set the following environment variables, in `.env`
 | AZURE_BLOB_CONTAINER | name of the azure storage blob container |
 | AZURE_DESTINATION_KEY | azure storage account destination key |
 | DB | name of mongo database to backup |
+| MONGO_USERNAME | username for mongodb |
+| MONGO_PASSWORD | password to authenticate against mongodb |
+| MONGO_AUTH_DB | name of mongo authentication database |
+
 
 
 run `./backup_mongo.sh` inside the container

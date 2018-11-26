@@ -6,6 +6,9 @@ services:
       - .env
     environment:
       - MONGO_URI
+      - MONGO_USERNAME
+      - MONGO_PASSWORD
+      - MONGO_AUTH_DB
       - AZURE_SA
       - AZURE_BLOB_CONTAINER
       - AZURE_DESTINATION_KEY
