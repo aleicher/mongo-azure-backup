@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backup:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - MONGO_URI
+      - AZURE_SA
+      - AZURE_BLOB_CONTAINER
+      - AZURE_DESTINATION_KEY
+      - DB
+    command: sleep 3600
+  mongo:
+    image: "bitnami/mongodb:4.0"
