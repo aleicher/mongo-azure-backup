@@ -30,7 +30,7 @@ fi
 
 echo "Copying compressed archive to Azure Storage: ${AZURE_SA}/${AZURE_BLOB_CONTAINER}/${DIRECTORY}/${BACKUP_NAME}"
 azcopy --source $HOME/tmp_dump.gz --destination https://${AZURE_SA}.blob.core.windows.net/${AZURE_BLOB_CONTAINER}/${DIRECTORY}/${BACKUP_NAME} --dest-key ${AZURE_DESTINATION_KEY}
-yes | azcopy --source $HOME/tmp_dump.gz --destination https://${AZURE_SA}.blob.core.windows.net/${AZURE_BLOB_CONTAINER}/latest/${DB}-backup.gz --dest-key ${AZURE_DESTINATION_KEY}
+#yes | azcopy --source $HOME/tmp_dump.gz --destination https://${AZURE_SA}.blob.core.windows.net/${AZURE_BLOB_CONTAINER}/latest/${DB}-backup.gz --dest-key ${AZURE_DESTINATION_KEY}
 
 echo "Cleaning up compressed archive"
 rm $HOME/tmp_dump.gz
