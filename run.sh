@@ -43,6 +43,9 @@ else
             DB="${2}"
             shift # past argument
             ;;
+        --prefix)
+            USE_MONGO_URI_PREFIX=true
+            ;;
         *)  # unknown option
             shift # past argument
             ;;
@@ -51,7 +54,8 @@ else
     done
 
     ENV_ARGS="-e MONGO_URI=${MONGO_URI} -e MONGO_USERNAME=${MONGO_USERNAME} -e MONGO_PASSWORD=${MONGO_PASSWORD} -e MONGO_AUTH_DB=${MONGO_AUTH_DB} -e AZURE_SA=${AZURE_SA} "
-    ENV_ARGS+="-e AZURE_BLOB_CONTAINER=${AZURE_BLOB_CONTAINER} -e AZURE_SHARE_NAME=${AZURE_SHARE_NAME} -e AZURE_DESTINATION_KEY=${AZURE_DESTINATION_KEY} -e DB=${DB}"
+    ENV_ARGS+="-e AZURE_BLOB_CONTAINER=${AZURE_BLOB_CONTAINER} -e AZURE_SHARE_NAME=${AZURE_SHARE_NAME} -e AZURE_DESTINATION_KEY=${AZURE_DESTINATION_KEY} -e DB=${DB} "
+    ENV_ARGS+="-e USE_MONGO_URI_PREFIX=${USE_MONGO_URI_PREFIX}"
 fi
 
 docker run -ti --rm ${ENTRYPOINT} ${ENV_ARGS} mongo-azure-backup:test

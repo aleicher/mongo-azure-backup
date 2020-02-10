@@ -21,10 +21,11 @@ Make sure you set the following environment variables, in `.env`
 | AZURE_BLOB_CONTAINER | name of the azure storage blob container |
 | AZURE_SHARE_NAME | name of the azure file share |
 | AZURE_DESTINATION_KEY | azure storage account destination key |
-| DB | name of mongo database to backup |
+| DB | name of mongo database to backup, use '.', '*' or 'all' to backup all databases |
 | MONGO_USERNAME | username for mongodb |
 | MONGO_PASSWORD | password to authenticate against mongodb |
 | MONGO_AUTH_DB | name of mongo authentication database |
+| USE_MONGO_URI_PREFIX | include the mongodb uri in the backup file name |
 
 You should specify either `AZURE_BLOB_CONTAINER` for blob storage or `AZURE_SHARE_NAME` for a file share.
 
@@ -44,7 +45,7 @@ Run the backup directly with `docker run` or by using the `run.sh` script as fol
 | -c *or* --blob-container | name of the azure storage blob container |
 | -s *or* --share-name | name of the azure file share |
 | -k *or* --key | azure storage account destination key |
-| --db | name of mongo database to backup |
+| --db | name of mongo database to backup, use '.', '*' or 'all' to backup all databases |
 | -n *or* --username | username for mongodb |
 | -p *or* --password | password to authenticate against mongodb |
 | -a *or* --auth-db | name of mongo authentication database |
