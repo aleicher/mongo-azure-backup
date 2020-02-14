@@ -5,14 +5,16 @@ services:
     env_file:
       - .env
     environment:
-      - MONGO_URI
+      - "MONGO_URI=mongo:27017"
       - MONGO_USERNAME
       - MONGO_PASSWORD
       - MONGO_AUTH_DB
       - AZURE_SA
       - AZURE_BLOB_CONTAINER
+      - AZURE_SHARE_NAME
       - AZURE_DESTINATION_KEY
       - DB
-    command: sleep 3600
+    depends_on:
+      - mongo
   mongo:
     image: "bitnami/mongodb:4.0"
